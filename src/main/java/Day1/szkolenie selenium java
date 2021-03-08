@@ -1,0 +1,197 @@
+https://github.com/qpcio/Automatyzacja032021
+
+List<T> - co to jest
+
+dla Stringów == nie działa
+albo działa czasem
+Lepiej .equals("")
+
+Liczby ze strony trzeba konwertować na tekst
+Integer.parseInt("123")
+
+IntelliJ skróty
+sout = system.out.println
+psvm = public static void...
+
+
+generate - toString() - jeśli się wywoła obiekt jako string, to to się wywoła
+
+
+- kwantyfikatory dostępu
+private
+protected
+public
+(nothing)
+patrz w projekcie co tam się dzieje ----  Pkg1, Pkg2
+
+gettery i settery mają swój poziom dostępu
+
+abstract - klasa nie może posiadać obiektów
+
+
+Wyjątki
+try / catch / finally
+Exception.getStackTrace()
+Exception.printStackTrace()
+Exception.getMessage()
+
+
+
+/////////////////////////////////////////////// Selenium
+
+Selektory
+
+-XPATH
+-ID
+LINK_TEXT
+PARTIAL_LINK_TEXT
+NAME
+TAG_NAME
+CLASS_NAME
+-CSS_SELECTOR
+
+ID
+o Boże może być powielone! - strona nie trzyma standardu
+driver.findElement(By.id("moje_ID"))
+
+https://www.swiatroweru.com.pl/warsztat/seminariumStronka/
+
+css selector ----------------
+można po htmlu:
+#ID
+.klasa.kolejnaklasa
+ścieżka: #ID>.klasa  czyli szuka klasy która jest bezpośrednim dzieckiem ID sekcja
+ścieżka: #ID .klasa		czyli spacja zamiast strzałki, klasa gdziekolwiek wewnątrz ID
+które dziecko:
+	"#sekcja li:nth-of-type(2)>a" w id sekcja szukamy drugi li, i potem a
+	"#sekcja li:nth-child(2)>a"
+	a jest dlatego, że nie chcemy klikać na <li>, tylko na <a>
+	2 bo indeksacja jest od 1
+CSS selector szuka tylko w dół - XPATH potrafi w górę
+
+	nth of type vs nth child	powinno być jasne
+
+typ elementu 
+"input" - jak jest jeden na stronie
+
+dodatkowe atrybuty
+".primary-btn[atrybut=\"wartosc_atrybutu\"]
+nawet wystarczy samo "[atrybut]" jeśli to jest unikalny atrybut
+ID jest też atrybutem
+[id="sekcja"]>.helper
+
+wildcardy
+".button[id*=\"fragment_ID\"]"
+	czasen frameworki tworzą dynamiczne id, z częścią stałą
+"*[class=\"klasa\"]"
+
+
+na tym samym poziomie dom
+"h2~a" - a gdziekolwiek po h2
+"h2+a" - a zaraz po h2
+"h2,a" - wszystko po obu stronach przecinka ???
+
+Wszystkie można łączyć
+"a>.klasa *[atrybut*=\"fragment\"]
+"h2~a+a"
+
+w3schools css selectors
+
+
+----- https://flukeout.github.io
+----- http://automationpractice.com/index.php
+#homefeatured>li:nth-child(1)>a
+#homefeatured>li:nth-child(1) .ajax_add_to_cart_button
+#block_top_menu>ul>li>[title="T-shirts"]
+.logo
+
+XPATH --------------------------------------------
+potrafią iść w górę drzewa (do korzenia)
+
+Xpath = // tagname [@Attribute='Value']
+
+absolute vs relative
+/html/body/div[1]
+//*[@class='klasa']//*[text()='Testing']
+
+driver.findElement(By.xpath("xpath selector"))
+
+//*[@id='email']
+//input[@name='fname']
+//*[@id='email']/span
+//a[@href='https://directpl.com/']
+
+Pozwala na trawersowanie w górę
+//div[@id='nav']/..
+
+//img/../../..
+
+//img//ancestor::section
+
+//section[starts-with(@id, 'section-')]
+//*[contains(@id,'section-')]
+[id*='section'] - to jest css selector
+
+xpath funkcje
+
+tekst:
+//div[@id='nav']/text()
+
+zwraca string o wartości danego atrybutu.... jak?................
+
+
+indeksowanie 
+(//a)[2] drugi element a na całej stronie
+//ol/li[2]
+
+//ol/li[position()=2] to samo co wyżej
+
+//a[last()] ostatni element last
+
+//ol/li/[position()>1] wszystkie elementy li oprócz pierwszego, których rodzicem jest ol
+
+//*[@id='sekcja']//li[3]/a
+
+//section[position()>2] sekcje oprócz pierwszej i drugiej
+
+
+predykaty
+position()<10 - pierwze 9 elementów
+//*[@data-table] - wszystkie elementy z tym atrybutem
+/bookstore/book[price>35.00]/title - kiedy price jest atrybutem liczbowym
+
+// == /*/
+
+
+ćwiczenia
+
+//section[2]//li[4]/a
+//li[@data-row-id='2']/a
+//li[@data-row-id='4']/../../*[@class='helper']
+==  //*[@data-row-id=4]//ancestor::section/*[@class='helper'] -- super
+
+//*[@id="block_top_menu"]/ul/li/a[@title="Dresses"]
+//div[@id='block_top_menu']/ul/li[2] - to niedobrze, bo po indeksie
+
+Chcemy trafić w klikalny element albo Wewnątrz niego = powinno to być <a> <button>,
+javascriptem można ustawić onclick każdemu elementowi
+w devtoolsach można kliknąć na element DOM i sprawdzić, czy jest klikalny
+
+
+
+debugger - stawiasz czerwoną kropkę tam gdzie go zatrzymać
+
+skróty klawiaturowe
+key promoter x - plugin do intellij
+shift+f10 = ?
+
+
+
+
+
+
+
+
+
+
+
