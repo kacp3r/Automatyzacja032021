@@ -1,0 +1,46 @@
+
+strona uznawana jest za załadowaną kiedy stop zmienia się na refresh (X na Ov)
+
+driver.quit vs close ??
+close zamyka chroma, quit niszczy drivera (null)
+raczej używamy quita, przeglądarka będzie czysta
+
+magiczna kropka w xpath: . 
+można znaleźć element wewnątrz poprzedniego elementu
+jeśli postawimy kropkę, to xpath będzie szukał tylko od tego elementu w dół
+
+Jeden test powinien testować jedną rzecz
+piramida testów
+shift-left
+validation vs verification
+CO TO SĄ ZA RZECZY :V:????
+
+explicit wait - ExpectedConditions.stalenessOf(WebElement)
+Czekamy, aż element zniknie albo przeładuje się
+
+css selector last-of-type
+
+https://www.seleniumeasy.com/test/drag-and-drop-demo.html
+to niedobre i nie działa
+
+klasa Actions robi dziwne rzeczy
+np. keydown: ctrl+click
+moveToElement = najechanie na element
+budujemy jako ciąg akcji po kropce .click().click().build().perform()
+
+http://demo.guru99.com/test/drag_drop.html
+to super
+
+----------------------------------------JavaScript
+javascript w trudnych przypadkach
+JavascriptExecutor js = (JavascriptExecutor)driver;
+js.executeScript("jakikolwiek_javascript")
+Można puścić dowolnego jsa
+js.executeScript("document.getElementByID(\"ID\").click();");
+Gdy element jest zasłonięty, z innego powodu się nie pokazuje
+	- wtedy selenium nie kliknie, a js kliknie
+	
+	
+page object można też tak pisać, że każda metoda zwraca dany page object
+wtedy można chainować metody
+return this;
