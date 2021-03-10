@@ -91,21 +91,21 @@ public class ContactPO extends BasePO{
     }
 
     public ContactPO sendEmail(String emailAddress){
-        logger.trace("Attempting to send email address");
+        logger.trace("Attempting to send email address " + emailAddress);
         emailField.sendKeys(emailAddress);
         logger.debug("Sent email address to field");
         return this;
     }
 
     public ContactPO sendOrderId(String orderId){
-        logger.trace("Attempting to send Order Id to field");
+        logger.trace("Attempting to send Order Id to field " + orderId);
         orderIdField.sendKeys(orderId);
         logger.debug("Sent order Id to field");
         return this;
     }
 
     public ContactPO sendMessage(String message){
-        logger.trace("Attempting to send message to field");
+        logger.trace("Attempting to send message to field " + message);
         messageField.sendKeys(message);
         logger.debug("Sent message to field");
         return this;
@@ -115,22 +115,24 @@ public class ContactPO extends BasePO{
         Select select = new Select(subjectHeadingDropdown);
         logger.trace("Attempting to select element from subject heading dropdown");
         select.selectByValue(elementNo);
-        logger.debug("Selected element from subject heading dropdown");
+        logger.debug("Selected element from subject heading dropdown, element no. " + elementNo);
         return this;
     }
 
     public ContactPO sendFileToFileUploadField(String fileAddress){
-        logger.trace("Attempting to send file to file upload field");
+        logger.trace("Attempting to send file to file upload field " + fileAddress);
         fileUploadField.sendKeys(fileAddress);
         logger.debug("Sent file to file upload field");
         return this;
     }
 
-    public void clickSubmitMessageButton(){
+    public ContactPO clickSubmitMessageButton(){
         logger.trace("Attempting to click submit message button");
         submitMessageButton.click();
         logger.debug("Clicked subject heading button");
+        return this;
     }       // this is intentionally on void, because then you are no longer on the contact page
+            // but it should not be, Jakub says he would still return this
 
     public boolean successMessageIsVisible(){
         logger.trace("Will attempt to check for success message field");
