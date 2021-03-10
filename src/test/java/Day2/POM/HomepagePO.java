@@ -3,9 +3,11 @@ package Day2.POM;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomepagePO extends BasePO {
     Logger logger = Logger.getLogger(HomepagePO.class);
@@ -22,6 +24,21 @@ public class HomepagePO extends BasePO {
 
     @FindBy(xpath = "//a[@title='Dresses'][1]")
     private WebElement womenCategoryDisplayed;
+
+    @FindBy(css = "#homefeatured .product-container")
+    private List<WebElement> allFeaturedProducts;
+
+    private List<ProductMiniaturePO> getProductMiniatures(){
+        List<ProductMiniaturePO> list = new ArrayList<>();
+        for (WebElement e: allFeaturedProducts) {
+            list.add(new ProductMiniaturePO(e, driver));
+        }
+        return list;
+    }
+
+    public double getNthPrice(int n){
+        return getProductMiniatures().get(n-1).getPrice();
+    }
 
     private String myurl = "http://automationpractice.com/index.php";
 

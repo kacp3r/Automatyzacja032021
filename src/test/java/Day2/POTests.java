@@ -31,4 +31,17 @@ public class POTests extends BaseTest{
         //then
         Assert.assertTrue(homepagePO.womenCategoryDisplayed());
     }
+
+    @Test
+    public void priceOfFirstProductTest(){
+        //given
+        HomepagePO homepagePO = new HomepagePO(driver);
+        double expectedPrice = 16.51;
+
+        //when
+        double result = homepagePO.openMe().getNthPrice(1);
+
+        //then
+        Assert.assertEquals(result, expectedPrice);
+    }
 }

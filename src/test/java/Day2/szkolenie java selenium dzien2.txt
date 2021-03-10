@@ -44,3 +44,35 @@ Gdy element jest zasłonięty, z innego powodu się nie pokazuje
 page object można też tak pisać, że każda metoda zwraca dany page object
 wtedy można chainować metody
 return this;
+
+----- logowanie
+Log4j
+Appender to sposób w jaki będzie następowało logowanie
+	ma layout konfigurowalny
+	ma klasę, która mówi, gdzie będzie logowanie
+	wystarczy dopisać kolejne appendery w sekcji root, wtedy wszystkie zadziałają
+root - który poziom wiadomości logować?
+		i jakim appenderem
+		np. fatale na konsole, wszystko do pliku
+	>	fatal
+		error
+		warning
+		info
+		debug
+		trace	>
+
+logować należy w page objectach, nie w testach
+testy będą najczystsze
+
+----- poćwicz 
+css diner
+https://www.w3schools.com/xml/xpath_intro.asp
+
+----- do projektu jeszcze można dorzucić
+manager page objectów - jutro dośle
+masz jakąś centralną jedną klasę, z której pobierasz page objecty
+
+guru99
+
+
+soft assert
