@@ -76,3 +76,112 @@ guru99
 
 
 soft assert
+
+
+
+--------------------
+
+plik properties - co to jest
+
+--------------------
+
+Przed zrobieniem .sendKeys() warto też zrobić .clear() ??tak??
+
+
+
+-------------
+
+srelenium grid
+oryginalnie do: uruchamianie rozproszone
+
+hub - główny komp
+	node'y - łączą się z hubem
+		po systemie (win), przeglądarce, wersji przeglądarki
+		
+ściągamy .jar a z selenium.dev
+
+można go używać do równoległego uruchamiania - ale my tego nie będziemy robić
+
+        // do Selenium Grid byłoby:
+        // driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/"), options);    
+			//options jak parę linijek wyżej, to chyba nie koniec tego urla
+
+--------------
+
+Wiele testów naraz
+
+TestNG do javy
+ładnie współpracuje z intellij
+może jeszcze korzystać z plików xml konfigurujących
+
+<suite name="Test-class Suite" parallel="classes" thread-count="2" >
+    <test name="Test-class test">
+        <classes>
+            <class name="Day2.POTests" />
+            <class name="Day2.ContactTests" />
+        </classes>
+    </test>
+</suite>
+
+thread-count - maksymalnie tyle ile jest klas z testami, tutaj będą dwie klasy naraz
+methods-test-testing.xml
+i odpalamy SAM TEN PLIK z intellij
+
+Cucumber
+opcje w pomie
+potrzebny plugin surefire
+
+GUnit - ? JUnit?
+
+----------
+szybkość ładowania strony w selenium
+long czas = System.currentTimeMillis();
+homepagePO.openMe();
+// ewentualnie jakieś czekanie
+wynik = nowy czas - poprzedni czas
+
+-----------
+
+do testowania API - rest assured
+
+-----------
+
+Jakub Rosiński
+
+-----------
+
+test - ma się nie dać zalogować w nowym oknie tej samej przeglądarki na to samo konto
+
+wysłać actionsami ctrl+t
+	albo
+actionsami ctrl+click
+	albo
+((JavascriptExecutor) driver).executeScript("window.open()");
+
+	potem:
+swtitchTo
+window handler z drivera
+I znowu switch to do poprzedniego window handlera
+.getWindowHandle
+.switchTo.window()
+	albo:
+ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+driver.switchTo().window(tabs.get(1));
+
+------------------
+
+poleca:
+https://www.toolsqa.com - to najlepsze
+https://www.toolsqa.com/selenium-cucumber-framework/page-object-manager/
+	nie musi to być użyte z cucumberem
+https://www.guru99.com
+
+---------------------
+
+Fajnie jest automatyzować backend niż frontend
+
+
+--------------------
+
+Od 1x wersji Javy można deklarować var zamiast typu zmiennej
+

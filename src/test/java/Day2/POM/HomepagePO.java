@@ -31,10 +31,11 @@ public class HomepagePO extends BasePO {
     @FindBy(id = "contact-link")
     private WebElement contactLink;
 
-    public void clickContactLink(){
+    public ContactPO clickContactLink(){
         logger.trace("Will attempt to click on Contact Us link");
         contactLink.click();
         logger.trace("Clicked on Contact Us link");
+        return new ContactPO(driver);
     }
 
     private List<ProductMiniaturePO> getProductMiniatures(){
