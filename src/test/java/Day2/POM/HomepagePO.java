@@ -28,6 +28,15 @@ public class HomepagePO extends BasePO {
     @FindBy(css = "#homefeatured .product-container")
     private List<WebElement> allFeaturedProducts;
 
+    @FindBy(id = "contact-link")
+    private WebElement contactLink;
+
+    public void clickContactLink(){
+        logger.trace("Will attempt to click on Contact Us link");
+        contactLink.click();
+        logger.trace("Clicked on Contact Us link");
+    }
+
     private List<ProductMiniaturePO> getProductMiniatures(){
         List<ProductMiniaturePO> list = new ArrayList<>();
         for (WebElement e: allFeaturedProducts) {

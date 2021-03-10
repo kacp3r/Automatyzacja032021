@@ -18,5 +18,6 @@
     <root>
         <priority value="trace"/>
         <appender-ref ref="FILE" />
+        <appender-ref ref="Appender1" />
     </root>
 </log4j:configuration>
